@@ -1,0 +1,11 @@
+{
+  "name": "drug-license-obligations",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "管理创新药跨境授权中的地域、适应症、里程碑、共同开发和收益义务。",
+  "scripts": {
+    "check": "node src/service.js --check",
+    "test": "node --test"
+  }
+}

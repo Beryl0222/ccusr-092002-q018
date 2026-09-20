@@ -1,0 +1,22 @@
+{
+  "service": "drug-license-obligations",
+  "source_context": "http://health.people.com.cn/n1/2026/0918/c14739-40800824.html",
+  "sample": {
+    "deal_id": "BD-2026-008",
+    "asset": "双特异性抗体候选物",
+    "territories": [
+      "美国",
+      "欧盟"
+    ],
+    "milestones": [
+      {
+        "id": "M3",
+        "event": "三期首例入组",
+        "currency": "USD",
+        "depends_on": [
+          "M2"
+        ]
+      }
+    ]
+  }
+}
