@@ -3,20 +3,79 @@
   "source_context": "http://health.people.com.cn/n1/2026/0918/c14739-40800824.html",
   "sample": {
     "deal_id": "BD-2026-008",
-    "asset": "双特异性抗体候选物",
-    "territories": [
-      "美国",
-      "欧盟"
+    "title": "双特异性抗体候选物美国/欧盟独占许可与共同开发",
+    "parties": [
+      { "id": "licensor", "name": "岚桥生物（许可方）", "home_country": "中国", "role": "licensor" },
+      { "id": "licensee", "name": "Northpeak Therapeutics（被许可方）", "home_country": "美国", "role": "licensee" }
     ],
+    "assets": [
+      { "id": "LB-101", "name": "双特异性抗体候选物", "modality": "双特异性抗体", "targets": ["HER2", "HER3"] }
+    ],
+    "territories": ["美国", "欧盟"],
+    "indications": ["非小细胞肺癌", "胃癌"],
+    "grants": [
+      { "id": "G1", "party": "licensee", "asset": "LB-101", "territory": "美国", "indications": ["非小细胞肺癌", "胃癌"], "rights": ["开发", "生产", "商业化"], "exclusivity": "独占" },
+      { "id": "G2", "party": "licensee", "asset": "LB-101", "territory": "欧盟", "indications": ["非小细胞肺癌"], "rights": ["开发", "商业化"], "exclusivity": "独占" },
+      { "id": "G3", "party": "licensor", "asset": "LB-101", "territory": "中国", "indications": ["实体瘤"], "rights": ["开发", "生产", "商业化"], "exclusivity": "独占" }
+    ],
+    "upfront": { "id": "P0", "amount": 80000000, "currency": "USD", "payer": "licensee", "payee": "licensor", "due_days_after_effective": 20 },
     "milestones": [
-      {
-        "id": "M3",
-        "event": "三期首例入组",
-        "currency": "USD",
-        "depends_on": [
-          "M2"
-        ]
-      }
+      { "id": "M1", "category": "clinical", "event": "一期临床完成剂量递增", "responsible": "licensee", "depends_on": [], "payment": { "id": "P1", "amount": 20000000, "currency": "USD", "payer": "licensee", "payee": "licensor", "due_days": 30 } },
+      { "id": "M2", "category": "clinical", "event": "二期临床达到主要终点", "responsible": "licensee", "depends_on": ["M1"], "payment": { "id": "P2", "amount": 40000000, "currency": "USD", "payer": "licensee", "payee": "licensor", "due_days": 30 } },
+      { "id": "M3", "category": "clinical", "event": "三期首例入组", "responsible": "licensee", "depends_on": ["M2"], "payment": { "id": "P3", "amount": 30000000, "currency": "USD", "payer": "licensee", "payee": "licensor", "due_days": 30 } },
+      { "id": "M4", "category": "regulatory", "event": "美国上市批准", "responsible": "licensee", "depends_on": ["M3"], "payment": { "id": "P4", "amount": 75000000, "currency": "USD", "payer": "licensee", "payee": "licensor", "due_days": 45 } },
+      { "id": "M5", "category": "sales", "event": "年度净销售额首次超过5亿美元", "responsible": "licensee", "depends_on": ["M4"], "payment": { "id": "P5", "amount": 50000000, "currency": "USD", "payer": "licensee", "payee": "licensor", "due_days": 60 } },
+      { "id": "M6", "category": "patent", "event": "核心化合物专利在美国获得授权", "responsible": "licensor", "depends_on": [], "payment": null }
+    ],
+    "royalties": {
+      "payer": "licensee",
+      "payee": "licensor",
+      "currency": "USD",
+      "report_frequency": "季度",
+      "tiers": [
+        { "up_to": 500000000, "rate": 0.08 },
+        { "up_to": 1500000000, "rate": 0.12 },
+        { "up_to": null, "rate": 0.16 }
+      ]
+    },
+    "fx": {
+      "home_currency": "CNY",
+      "lock_policy": "里程碑确认日锁定汇率",
+      "rates": [
+        { "pair": "USD/CNY", "date": "2026-09-01", "rate": 7.08 },
+        { "pair": "USD/CNY", "date": "2026-09-15", "rate": 7.11 },
+        { "pair": "USD/CNY", "date": "2026-10-01", "rate": 7.09 }
+      ]
+    },
+    "withholding_tax": [
+      { "payer_country": "美国", "payee_country": "中国", "rate": 0.1 }
+    ],
+    "committee": {
+      "id": "JDC",
+      "name": "共同开发委员会",
+      "members": [
+        { "id": "L1", "name": "岚桥代表一", "party": "licensor" },
+        { "id": "L2", "name": "岚桥代表二", "party": "licensor" },
+        { "id": "L3", "name": "岚桥代表三", "party": "licensor" },
+        { "id": "N1", "name": "Northpeak代表一", "party": "licensee" },
+        { "id": "N2", "name": "Northpeak代表二", "party": "licensee" },
+        { "id": "N3", "name": "Northpeak代表三", "party": "licensee" }
+      ],
+      "quorum": { "per_party": 2 },
+      "recusals": [
+        { "member_id": "N2", "topic": "竞品联合用药方案", "reason": "该成员直系亲属任职于竞品公司" }
+      ],
+      "escalation_ladder": ["JDC复议", "双方首席执行官磋商", "具有约束力的专家裁定"],
+      "final_decision": { "美国商业化策略": "licensee", "欧盟商业化策略": "licensee", "全球临床开发方案": "consensus" }
+    },
+    "materials": [
+      { "id": "DOC-CMC-01", "title": "CMC 工艺资料包", "classification": "高度保密", "owner": "licensor", "allowed_parties": ["licensor", "licensee"], "unlock_after": "M1" },
+      { "id": "DOC-REG-02", "title": "注册申报资料模板", "classification": "保密", "owner": "licensor", "allowed_parties": ["licensor", "licensee"], "unlock_after": null },
+      { "id": "DOC-FIN-03", "title": "付款与发票凭证包", "classification": "保密", "owner": "licensee", "allowed_parties": ["licensee"], "unlock_after": null }
+    ],
+    "reminders": { "window_days": 30, "review_window_days": 15, "royalty_report_due_day": 30 },
+    "versions": [
+      { "n": 1, "effective_date": "2026-09-18", "reason": "初始签署", "approved_by": ["licensor", "licensee"] }
     ]
   }
 }
