@@ -3,19 +3,249 @@
   "source_context": "http://health.people.com.cn/n1/2026/0918/c14739-40800824.html",
   "sample": {
     "deal_id": "BD-2026-008",
-    "asset": "双特异性抗体候选物",
-    "territories": [
-      "美国",
-      "欧盟"
+    "title": "双特异性抗体候选物美国与欧盟授权合作",
+    "version": 3,
+    "signed_on": "2026-01-10",
+    "confirmation_window_days": 14,
+    "parties": [
+      { "id": "licensor", "name": "华澜生物", "role": "许可方" },
+      { "id": "licensee", "name": "NorthPeak Therapeutics", "role": "被许可方" }
+    ],
+    "territory_tree": {
+      "全球": ["美国", "欧盟", "日本"],
+      "欧盟": ["德国", "法国", "意大利"]
+    },
+    "indications": ["非小细胞肺癌", "结直肠癌"],
+    "assets": [
+      {
+        "id": "A1",
+        "name": "双特异性抗体候选物 HL-102",
+        "modality": "双特异性抗体",
+        "targets": ["PD-1", "VEGF"]
+      }
+    ],
+    "rights": [
+      {
+        "id": "R1",
+        "asset_id": "A1",
+        "territory": "美国",
+        "indication": "全部适应症",
+        "grantee": "licensee",
+        "exclusivity": "独占",
+        "activities": ["开发", "生产", "商业化"]
+      },
+      {
+        "id": "R2",
+        "asset_id": "A1",
+        "territory": "欧盟",
+        "indication": "非小细胞肺癌",
+        "grantee": "licensee",
+        "exclusivity": "独占",
+        "activities": ["开发", "商业化"]
+      },
+      {
+        "id": "R3",
+        "asset_id": "A1",
+        "territory": "欧盟",
+        "indication": "结直肠癌",
+        "grantee": "licensor",
+        "exclusivity": "保留",
+        "activities": ["开发", "生产", "商业化"]
+      },
+      {
+        "id": "R4",
+        "asset_id": "A1",
+        "territory": "日本",
+        "indication": "全部适应症",
+        "grantee": "licensor",
+        "exclusivity": "保留",
+        "activities": ["开发", "生产", "商业化"]
+      }
+    ],
+    "events": [
+      {
+        "id": "E1",
+        "type": "clinical",
+        "title": "二期首例受试者入组",
+        "occurred_on": "2026-03-04",
+        "timezone": "Asia/Shanghai",
+        "reported_by": "licensee",
+        "confirmations": {
+          "licensor": { "by": "华澜生物临床运营", "at": "2026-03-06T10:20:00+08:00" },
+          "licensee": { "by": "NorthPeak ClinOps", "at": "2026-03-05T21:10:00-05:00" }
+        },
+        "corrections": []
+      },
+      {
+        "id": "E3",
+        "type": "clinical",
+        "title": "三期首例受试者入组",
+        "occurred_on": "2026-08-20",
+        "timezone": "America/New_York",
+        "reported_by": "licensee",
+        "confirmations": {
+          "licensee": { "by": "NorthPeak ClinOps", "at": "2026-08-21T09:05:00-04:00" }
+        },
+        "corrections": []
+      },
+      {
+        "id": "E2",
+        "type": "regulatory",
+        "title": "美国上市申请受理",
+        "occurred_on": null,
+        "timezone": "America/New_York",
+        "reported_by": "licensee",
+        "confirmations": {},
+        "corrections": []
+      },
+      {
+        "id": "E4",
+        "type": "patent",
+        "title": "美国核心化合物专利授权",
+        "occurred_on": "2026-05-12",
+        "timezone": "America/New_York",
+        "reported_by": "licensor",
+        "confirmations": {
+          "licensor": { "by": "华澜生物知识产权部", "at": "2026-05-13T09:00:00+08:00" },
+          "licensee": { "by": "NorthPeak IP Counsel", "at": "2026-05-13T11:40:00-04:00" }
+        },
+        "corrections": []
+      }
     ],
     "milestones": [
+      { "id": "M1", "title": "签约生效", "trigger_event": null, "depends_on": [], "payment_id": "P1" },
+      { "id": "M2", "title": "二期首例入组", "trigger_event": "E1", "depends_on": ["M1"], "payment_id": "P2" },
+      { "id": "M3", "title": "三期首例入组", "trigger_event": "E3", "depends_on": ["M2"], "payment_id": "P3" },
+      { "id": "M4", "title": "美国上市申请受理", "trigger_event": "E2", "depends_on": ["M3"], "payment_id": "P4" }
+    ],
+    "payments": [
       {
-        "id": "M3",
-        "event": "三期首例入组",
+        "id": "P1",
+        "type": "首付款",
+        "amount": 40000000,
         "currency": "USD",
-        "depends_on": [
-          "M2"
-        ]
+        "payer": "licensee",
+        "payee": "licensor",
+        "settlement_currency": "CNY",
+        "fx_lock": { "pair": "USD/CNY", "rate": 7.1, "locked_at": "2026-01-15T09:30:00+08:00" },
+        "withholding": { "jurisdiction": "中国", "rate": 0.1, "gross_up": false },
+        "due_rule": { "anchor": "signing", "offset_days": 30, "timezone": "Asia/Shanghai" },
+        "paid_on": "2026-02-06"
+      },
+      {
+        "id": "P2",
+        "type": "临床里程碑",
+        "amount": 25000000,
+        "currency": "USD",
+        "payer": "licensee",
+        "payee": "licensor",
+        "settlement_currency": "CNY",
+        "fx_lock": { "pair": "USD/CNY", "rate": 7.08, "locked_at": "2026-03-10T16:00:00+08:00" },
+        "withholding": { "jurisdiction": "中国", "rate": 0.1, "gross_up": false },
+        "due_rule": { "anchor": "event:E1", "offset_days": 45, "timezone": "Asia/Shanghai" }
+      },
+      {
+        "id": "P3",
+        "type": "临床里程碑",
+        "amount": 60000000,
+        "currency": "USD",
+        "payer": "licensee",
+        "payee": "licensor",
+        "settlement_currency": "CNY",
+        "fx_lock": null,
+        "withholding": { "jurisdiction": "中国", "rate": 0.1, "gross_up": false },
+        "due_rule": { "anchor": "milestone:M3", "offset_days": 30, "timezone": "Asia/Shanghai" }
+      },
+      {
+        "id": "P4",
+        "type": "注册里程碑",
+        "amount": 90000000,
+        "currency": "USD",
+        "payer": "licensee",
+        "payee": "licensor",
+        "settlement_currency": "CNY",
+        "fx_lock": { "pair": "USD/CNY", "rate": 7.05, "locked_at": "2026-09-01T10:00:00+08:00" },
+        "withholding": { "jurisdiction": "中国", "rate": 0.1, "gross_up": true },
+        "due_rule": { "anchor": "event:E2", "offset_days": 45, "timezone": "Asia/Shanghai" }
+      },
+      {
+        "id": "P5",
+        "type": "销售分成",
+        "amount": null,
+        "currency": "USD",
+        "payer": "licensee",
+        "payee": "licensor",
+        "sales_report": { "period": "2026-Q2", "net_sales": 120000000, "currency": "USD" },
+        "royalty_tiers": [
+          { "up_to": 100000000, "rate": 0.08 },
+          { "up_to": null, "rate": 0.12 }
+        ],
+        "settlement_currency": "CNY",
+        "fx_lock": { "pair": "USD/CNY", "rate": 7.12, "locked_at": "2026-07-31T09:30:00+08:00" },
+        "withholding": { "jurisdiction": "中国", "rate": 0.1, "gross_up": false },
+        "due_rule": { "anchor": "fixed", "due_on": "2026-08-15", "timezone": "Asia/Shanghai" }
+      }
+    ],
+    "materials": [
+      {
+        "id": "MAT-1",
+        "title": "美国注册申报资料包",
+        "classification": "共享",
+        "scope": { "asset_id": "A1", "territory": "美国", "indication": "全部适应症" }
+      },
+      {
+        "id": "MAT-2",
+        "title": "CMC 生产工艺资料",
+        "classification": "许可方保留",
+        "scope": { "asset_id": "A1", "territory": "全球", "indication": "全部适应症" }
+      },
+      {
+        "id": "MAT-3",
+        "title": "欧盟结直肠癌临床数据",
+        "classification": "共享",
+        "scope": { "asset_id": "A1", "territory": "欧盟", "indication": "结直肠癌" }
+      }
+    ],
+    "jdc": {
+      "members": [
+        { "id": "J1", "party": "licensor", "name": "华澜临床负责人", "conflicts": [] },
+        { "id": "J2", "party": "licensor", "name": "华澜注册负责人", "conflicts": [] },
+        { "id": "J3", "party": "licensor", "name": "华澜 CMC 负责人", "conflicts": [] },
+        { "id": "J4", "party": "licensee", "name": "NorthPeak 开发负责人", "conflicts": [] },
+        { "id": "J5", "party": "licensee", "name": "NorthPeak 商务负责人", "conflicts": ["竞品项目"] },
+        { "id": "J6", "party": "licensee", "name": "NorthPeak 医学负责人", "conflicts": [] }
+      ],
+      "quorum": { "min_total": 4, "min_per_party": 2 },
+      "deadlock": { "max_attempts": 2, "escalation_path": ["双方首席执行官", "独立调解", "具有约束力的仲裁"] },
+      "motions": [
+        { "id": "MOT-1", "topic": "竞品项目", "title": "是否允许引入竞品联合用药研究", "attempts": 1, "status": "进行中" }
+      ]
+    },
+    "disputes": [
+      {
+        "id": "D1",
+        "target_type": "payment",
+        "target_id": "P2",
+        "raised_by": "licensee",
+        "reason": "发票汇率与锁定价不一致",
+        "opened_on": "2026-04-20",
+        "status": "处理中"
+      }
+    ],
+    "amendments": [
+      {
+        "version": 2,
+        "effective_on": "2026-04-01",
+        "approved_by": ["licensor", "licensee"],
+        "reason": "三期方案调整后重估里程碑金额",
+        "changes": [{ "path": "payments.P3.amount", "from": 50000000, "to": 60000000 }]
+      },
+      {
+        "version": 3,
+        "effective_on": "2026-07-01",
+        "approved_by": ["licensor", "licensee"],
+        "reason": "注册里程碑付款周期压缩",
+        "changes": [{ "path": "payments.P4.due_rule.offset_days", "from": 60, "to": 45 }]
       }
     ]
   }
